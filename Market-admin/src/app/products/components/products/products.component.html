@@ -1,0 +1,19 @@
+<div class="item">
+    <div (click)="navigateToDetails(data.id)" >
+        <div class="picture"><img src="{{data.image}}" alt="product"></div> 
+        <div class="body">
+            <div class="card-title"><h4 >{{data.title}}</h4> </div>       
+            <div class="card-text"><p>{{data.description}}</p></div>
+        </div>
+    </div>
+
+    <div class="footer d-flex justify-content-between align-items-center">
+        <button class="btn btn-success" *ngIf="!addButton" (click)="addButton = true" (click)="add()">Add to cart</button>
+        <div class="d-flex justify-content-between w-50" *ngIf="addButton">
+            <input type="number" class="quantity center-align" [(ngModel)]="amount">
+            <button class="btn btn-danger" (click)="add()">Add </button>
+        </div>
+        <span class="price">{{data.price}}$</span>
+    </div>
+</div>
+

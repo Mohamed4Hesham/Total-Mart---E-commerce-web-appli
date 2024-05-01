@@ -1,0 +1,193 @@
+
+<!-- <div class="box mt-5">
+    <div class="my-3" >
+        <app-select [data]="categories" [title]="'categories:'" (selectedValue)="filterCategory($event)"></app-select>
+    </div>
+    <div class="row" *ngIf="!loading">
+            <div class="col-md-3 col-6" *ngFor="let item of products">
+                <app-products [data]="item" (item)="addTocart($event)"></app-products>
+            </div>
+    </div>     
+</div>
+
+<div class="spinner text-center w-100" *ngIf="loading"><app-spinner></app-spinner></div> -->
+<button type="button" class="btn btn-primary mt-5 mb-5 btn-success" data-bs-toggle="modal" data-bs-target="#productDetailsModal">
+    Add Product            
+</button>    
+<table class="table">
+    <thead>
+        <tr>
+            <th class="text-center" scope="col">Image</th>
+            <th class="text-center" colspan="1">Name</th>
+            <th class="text-center mx-2" scope="col">Category</th>
+            <th class="text-center mx-2" scope="col">Price</th>
+            <th class="text-center mx-2" scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of products; let i = index">
+            <td class="text-center"><img src="{{item.image}}" alt="product" width="100px" height="100px"></td>
+            <td class="text-center">{{ item.title }}</td>
+            <td class="text-center mx-2">{{ item.category }}</td>
+            <td class="text-center mx-2">{{ item.price }} L.E</td>
+            <td class="text-center mx-2">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#productDetailsModal" (click)="update(item)">Update</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="productDetailsModal" tabindex="-1" aria-labelledby="productDetailsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg"> <!-- Add modal-lg class here for a large modal -->
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="productDetailsModalLabel">Add Product</h5>
+        </div>
+        <div class="modal-body">
+            
+            <form [formGroup]="form">
+                <div class="container">
+                <div class="row justify-content-around px-1 mx-3">
+                    <div class="col-md-4 col-sm-12">
+                    <div class="form-group">
+                        <label for="title">Title:</label>
+                        <input type="text" id="title" name="title" class="form-control mt-1" formControlName="title">
+                    </div>
+                    </div>
+                    <div class="col-md-4 col-sm-12">
+                        <div class="form-group">
+                            <label for="price">Price:</label>
+                            <input type="text" id="price" name="price" class="form-control mt-1" formControlName="price">
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-12">
+                        <div>
+                            <label>category:</label>
+                            <app-select class="form-control" [data]="categories" (selectedValue)="getSelectedcategories($event)" [select]="form.value.category"></app-select>                        
+                        </div> 
+                    </div>
+                </div>
+                
+                <div class="row justify-content-between px-1 mx-3 mt-3">
+                    <div class="col-md-4 col-sm-12">
+                        <div class="form-group">
+                            <label for="title">Image:</label>
+                            <img src="{{base64}}" width="100px" height="100px" class="form-control mt-1 mb-1">
+                            <input type="file" id="title" name="title" class="form-control mt-1" (change)="getImagepath($event)">
+                        </div>
+                    </div>
+                    <div class="col-md-8 col-sm-12">
+                        <div class="form-group">
+                            <label for="description">Description:</label>
+                            <textarea id="description" name="description" class="form-control mt-1" rows="7" formControlName="description"></textarea>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-success" data-bs-dismiss="modal" (click)="addProduct()" [disabled]="!form.valid">Add Product</button>
+        </div>
+        </div>
+    </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!-- Display product details here -->
+<!-- <div class="container">
+<div class="row justify-content-around px-1 mx-3">
+<div class="col-md-4 col-sm-12">
+    <div class="form-group">
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title" class="form-control mt-1">
+    </div>
+</div>
+<div class="col-md-4 col-sm-12">
+    <div class="form-group">
+    <label for="price">Price:</label>
+    <input type="text" id="price" name="price" class="form-control mt-1">
+    </div>
+</div>
+<div class="col-md-4 col-sm-12">
+    <div class="form-group">
+    <label for="categories">Categories:</label>
+    <select name="dropdown" id="categories" class="form-control mt-1">
+        <option value="Men's clothes">All</option>
+        <option value="Men's clothes">Men's clothing</option>
+        <option value="option4">Women's clothing</option>
+        <option value="option2">Jewelry</option>
+        <option value="option3">Electronics</option>
+    </select>
+    </div>
+</div>
+</div>
+
+<div class="row justify-content-between px-1 mx-3 mt-3">
+<div class="col-md-4 col-sm-12">
+    <div class="form-group">
+    <label for="title">Image:</label>
+    <input type="file" id="title" name="title" class="form-control mt-1">
+    </div>
+</div>
+<div class="col-md-8 col-sm-12">
+    <div class="form-group">
+    <label for="description">Description:</label>
+    <textarea id="description" name="description" class="form-control mt-1" rows="7"></textarea>
+    </div>
+</div>
+</div>
+</div> -->
+            
+            <!-- <table class="table">
+            <thead>
+                <tr>
+                <th></th>
+                <th scope="col">Product name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Total:</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of products; let i = index">
+                <td><img src="{{item.item.image}}" alt="product" width="100px" height="100px"></td>
+                <td>{{ item.item.title }}</td>
+                <td>{{ item.item.price }} L.E</td>
+                <td>{{ item.quantity }}</td>
+                <td>{{item.item.price * item.quantity }} L.E</td>
+                </tr>
+            </tbody>
+            </table> -->
+            <!-- Add more details as needed -->

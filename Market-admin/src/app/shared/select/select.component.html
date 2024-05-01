@@ -1,0 +1,8 @@
+<div >
+    <label>{{title}}</label>
+    <select (change)="detectChanges($event)">
+        <option id="category-placeholder" value="" disabled selected></option>
+        <option >All</option>
+        <option value="{{category}}" [selected]="category == select" *ngFor="let category of data">{{category}}</option>
+    </select>
+</div>

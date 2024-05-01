@@ -1,0 +1,81 @@
+<div class="container shopping-cart">
+<h1>Dashboard</h1>
+<form [formGroup]="form">
+<div class="row">
+<div class="start-filter col-md-3">
+    <label>Start date:</label>
+    <input type="date" class="form-control" formControlName="start">
+</div>
+<div class="end-filter col-md-3">
+    <label>End date:</label>
+    <input type="date" class="form-control" formControlName="end">
+</div>
+<div class="apply-button col-md-3 d-flex align-items-end">
+    <button type="submit" class="btn btn-success" (click)="applyFilters()">Apply</button>
+</div>
+</div>
+</form>
+
+<table class="table">
+<thead>
+<tr>
+    <th scope="col">Date</th>
+    <th scope="col">Quantity</th>
+    <th colspan="2">Action</th>
+</tr>
+</thead>
+<tbody>
+<tr *ngFor="let item of carts; let i = index">
+    <td>{{ item.date | date: "shortDate" }}</td>
+    <td>{{ item.products.length }}</td>
+    <td>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#productDetailsModal" (click)="viewDetails(i)">
+            View Details
+        </button>       
+    </td>
+    <td>
+    <button class="btn btn-danger delete-button" (click)="deleteCart(item.id)">Delete</button>
+    </td>
+</tr>
+</tbody>
+</table>
+
+<!-- Modal -->
+<div class="modal fade" id="productDetailsModal" tabindex="-1" aria-labelledby="productDetailsModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered modal-lg"> <!-- Add modal-lg class here for a large modal -->
+    <div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title" id="productDetailsModalLabel">Product Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+        <!-- Display product details here -->
+        <table class="table">
+        <thead>
+            <tr>
+            <th></th>
+            <th scope="col">Product name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Total:</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of products; let i = index">
+            <td><img src="{{item.item.image}}" alt="product" width="100px" height="100px"></td>
+            <td>{{ item.item.title }}</td>
+            <td>{{ item.item.price }} L.E</td>
+            <td>{{ item.quantity }}</td>
+            <td>{{item.item.price * item.quantity }} L.E</td>
+            </tr>
+        </tbody>
+        </table>
+        <!-- Add more details as needed -->
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+    </div>
+    </div>
+</div>
+</div>
+

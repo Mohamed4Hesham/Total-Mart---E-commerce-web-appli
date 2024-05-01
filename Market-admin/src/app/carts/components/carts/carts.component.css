@@ -1,0 +1,179 @@
+.container.shopping-cart {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.container.shopping-cart h1 {
+    text-align:left;
+    color: #333;
+    margin-bottom: 20px;
+    margin-top: 50px;
+}
+
+
+.container.shopping-cart .subtitle-button {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+
+} 
+
+.container.shopping-cart .subtitle-button div button{
+    margin-left: 350px;
+}
+.container.shopping-cart .subtitle-button div h5 span{
+    color: rgb(171, 4, 4);
+
+}
+.container.shopping-cart .table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+
+}
+
+.container.shopping-cart .table thead th {
+    background-color: #f8f8f8;
+    padding: 10px;
+    text-align: center;
+}
+
+.container.shopping-cart .table tbody td {
+    padding: 15px;
+    border: 1px solid #ddd;
+    text-align: center;
+    vertical-align: middle;
+} 
+.apply-button{
+    padding: 20px;}
+
+
+/* thead{
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction:row;
+    margin-left: 250px;
+}
+
+thead tr {
+    font-weight: bold; 
+    padding: 0 60px;
+}
+
+tbody{
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction:row;
+    margin-left: 250px;
+}
+
+tbody tr {
+    padding: 0 60px;
+} 
+
+tbody tr:nth-child(4) {
+padding-left: 70px;
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
+
+.shopping-cart {
+    font-family: Arial, sans-serif;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.subtitle-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.subtitle-button p {
+    margin: 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+thead tr {
+    background-color: #ccc;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tbody tr td,
+tfoot tr td {
+    padding: 10px;
+}
+
+tfoot tr td {
+    font-weight: bold;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+} */
